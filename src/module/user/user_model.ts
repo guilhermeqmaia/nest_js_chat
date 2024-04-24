@@ -6,9 +6,9 @@ export interface User {
 
 export const isValidUser = (user: unknown): user is User => {
   return (
-    typeof user === 'object' &&
+    typeof user === "object" &&
     user !== null &&
-    'name' in user &&
-    'password' in user
+    "name" in user &&
+    "password" in user
   );
 };
