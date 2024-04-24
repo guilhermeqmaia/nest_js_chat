@@ -1,6 +1,6 @@
 import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
-import { PrivateKeyMiddleware } from "./core/middlewares/private_key.middleware";
+import { PrivateKeyMiddleware } from "./core/middlewares/private_key_middleware";
 import { UserModule } from "./module/user/user_module";
 
 @Module({
