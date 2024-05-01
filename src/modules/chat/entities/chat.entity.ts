@@ -1,4 +1,5 @@
 import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
+import { ChatMessage } from "./chat_message.entity";
 import { ChatUser } from "./chat_user.entity";
 
 @Table({
@@ -19,4 +20,10 @@ export class Chat extends Model {
     as: "users",
   })
   users: ChatUser[];
+
+  @HasMany(() => ChatMessage, {
+    foreignKey: "chatId",
+    as: "messages",
+  })
+  messages: ChatMessage[];
 }
