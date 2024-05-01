@@ -2,11 +2,11 @@ import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { PrivateKeyMiddleware } from "./core/middlewares/private_key_middleware";
+import { ChatModule } from "./modules/chat/chat.module";
 import { UserModule } from "./modules/user/user.module";
 
 @Module({
   imports: [
-    UserModule,
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: ".env",
@@ -22,6 +22,8 @@ import { UserModule } from "./modules/user/user.module";
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
     }),
+    UserModule,
+    ChatModule,
   ],
 })
 export class AppModule implements NestModule {
