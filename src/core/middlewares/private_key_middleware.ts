@@ -5,7 +5,7 @@ import { NextFunction, Request, Response } from "express";
 export class PrivateKeyMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: NextFunction) {
     if (req.headers["private-key"] !== process.env.PRIVATE_KEY) {
-      res.status(401).send("Unauthorized");
+      res.status(401).send({ message: "Unauthorized" });
       return;
     }
     next();
